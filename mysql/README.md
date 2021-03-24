@@ -32,7 +32,7 @@ host> docker-compose -d --build
 host> docker exec -it mysql_client_1 bash
 ```
 
-### 3. クライアントからサーバのMySQLに接続する
+### 3. クライアントからサーバのMySQLに接続する。
 ```bash
 client> mysql -hmysql_server_1 -uroot -proot
 ```
