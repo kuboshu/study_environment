@@ -1,0 +1,38 @@
+create database student;
+set global local_infile=1;
+create table if not exists student.math(
+    school varchar(10),
+    sex varchar(10),
+    age int,
+    addr varchar(10),
+    famsize varchar(10),
+    Pstatus varchar(10),
+    Medu int,
+    Fedu int,
+    Mjob varchar(255),
+    Fjob varchar(255),
+    reason varchar(255),
+    guardian varchar(10),
+    traveltime int,
+    studytime int,
+    failures int,
+    schoolsup varchar(10),
+    famsup varchar(10),
+    paid varchar(10),
+    activities varchar(10),
+    nursery varchar(10),
+    higher varchar(10),
+    internet varchar(10),
+    romantic varchar(10),
+    famrel int,
+    freetime int,
+    goout int,
+    Dalc int,
+    Walc int,
+    health int,
+    absences int,
+    G1 int,
+    G2 int, 
+    G3 int
+);
+-- mysql -uroot -proot --local_infile=1でやると上手くいった。
