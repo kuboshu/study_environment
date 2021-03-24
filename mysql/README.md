@@ -1,7 +1,6 @@
 # MySQLの練習環境
 MySQLの使い方を勉強するための環境です。serverとclientの２つのコンテナで構成されており、データをserver側に登録してclient側からデータベースを操作します。
 
-データは、コンテナビルド時に[ここ]()からダウンロードされてMySQLに登録されます。
 
 # 注意
 
@@ -16,6 +15,12 @@ MySQLの使い方を勉強するための環境です。serverとclientの２つ
 ## Docker composeで起動する。
 
 説明する際のプロンプトは、ホスト側での操作の時は"host> "、serverコンテナ側では"server> "、clientコンテナ側では"client> "で表示してます。
+
+### 0. データをダウンロードする
+[UCI Machine Learning Repository(Student Performance)](https://archive.ics.uci.edu/ml/datasets/Student+Performance)からデータをダウンロードして、以下の２つのcsvファイルをcontents/に配置します。
+
+- student-mat.csv
+- student-por.csv
 
 ### 1. コンテナを起動する
 ```base
@@ -70,3 +75,4 @@ host> docker-compose down
 
 # 参考
 - [Dockerhub:Mysql](https://hub.docker.com/_/mysql)
+- [UCI Machine Learning Repository(Student Performance)](https://archive.ics.uci.edu/ml/datasets/Student+Performance)
