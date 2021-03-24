@@ -1,1 +1,2 @@
 mysql -uroot -proot --local_infile=1 -e "load data local infile '/home/mysql/contents/student-mat.csv' into table student.math fields terminated by ';' enclosed by '\"'  ignore 1 lines"
+mysql -uroot -proot --local_infile=1 -e "load data local infile '/home/mysql/contents/student-por.csv' into table student.language fields terminated by ';' enclosed by '\"'  ignore 1 lines"
