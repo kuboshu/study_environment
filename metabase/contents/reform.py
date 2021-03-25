@@ -35,10 +35,13 @@ def reform_file(filename="household_power_consumption.txt", skip_head=True):
     """
     ファイル中の日付のフォーマットをMySQLで読める様に変更する。
     先頭の行がカラム名の場合はskip_headをTrueにしてください。
+
+    とりあえず変換後の改行コードは元のファイルにあわせてCRLFにしてます。
+    改行コードで不具合が発生した場合はnewlineの値を調整してください。
     """
     is_head = True
-    with open("reformed_{}".format(filename), "w", encoding="utf-8", newline="\n") as fout:
-        with open(f"{filename}", "r", encoding="utf-8", newline="\r\n") as fin:
+    with open("reformed_{}".format(filename), "w", encoding="utf-8", newline="\r\n") as fout:
+        with open(f"{filename}", "r", encoding="utf-8") as fin:
             for line in fin:
                 if is_head and skip_head:
                     fout.write(line)
