@@ -1,0 +1,1 @@
+mysql -uroot -proot --local_infile=1 -e "load data local infile '/home/mysql/contents/reformed_household_power_consumption.txt' into table household.power fields terminated by ';' enclosed by '\"'  ignore 1 lines"

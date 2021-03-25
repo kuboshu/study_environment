@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  mysql:
+    build: .
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - mysql_net
+
+  metabase:
+    image: metabase/metabase:v0.38.2
+    depends_on: 
+      - mysql
+    ports:
+      - 3000:3000
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
