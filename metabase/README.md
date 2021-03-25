@@ -12,13 +12,13 @@ Metabaseの使い方を勉強するための環境です。metabaseサーバとm
 
 説明する際のプロンプトは、ホスト側での操作の時は"host> "、serverコンテナ側では"server> "、clientコンテナ側では"client> "で表示してます。
 
-### 0. データをダウンロードする
-[UCI Machine Learning Repository(Student Performance)](https://archive.ics.uci.edu/ml/datasets/Student+Performance)からデータをダウンロードして、以下のtxtファイルをcontents/に配置します。
+## 0. データをダウンロードする
+[UCI Machine Learning Repository(Individual household electric power consumption)](https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption)からデータをダウンロードして、以下のtxtファイルをcontents/に配置します。
 
 - household_power_consumption.txt
 
 配置しましたら、reform.pyを実行してデータファイル中の日付表示をMySQLが読み取れる形式に変換してください。
-具体的な処理はreform.pyのコードを参照してください。
+具体的な処理を知りたい場合はreform.pyのコードを参照してください。
 
 ```bash
 host> python reform.py #Python3.6以上での実行を想定しています。(作者環境は3.8.6)
@@ -29,22 +29,27 @@ host> python reform.py #Python3.6以上での実行を想定しています。(�
 host> docker-compose -d --build
 ```
 
-### 2. Metabaseに接続する
-```base
-host> docker exec -it mysql_client_1 bash
-```
+### 2. Metabaseを使う
 
-### 3. Metabaseで色々試す
-```bash
-client> mysql -hmysql_server_1 -uroot -proot
-```
-mysqlを起動するとプロンプトが以下の様にmysqlに変化します。
+1. ホスト側から起動したブラウザのURLに"localhost:3000"と入力してMetabaseに接続する。<br>
+   接続したら案内に従って必要事項を設定していきます。
 
-```bash
-mysql> 
-```
+2. ユーザ情報を入力してください。<br>
+   コンテナを停止したら設定は全て消えるので適当に設定します。
 
-### 7. コンテナ停止
+3. データベースと接続するために以下の様に入力してください。<br>
+   名前は適当で大丈夫です。また、パスワードは"root"です。<br>
+   それ以外は、今回はとりあえず初期値で大丈夫です。<br>
+   ![setup_db](figure/setup_db.png)
+
+4. 遊ぶ
+   設定に問題がなければMetabaseにデータが読み込まれて以下のように表示されます。<br>
+   後はSQLで遊んだり、ダッシュボードを設定したりして遊べます!!
+   ![metabase_top](figure/metabase_top.png)
+
+5. 使い終わったらブラウザを閉じる
+
+### 3. コンテナ停止
 ```bash
 host> docker-compose down
 ```
@@ -56,5 +61,5 @@ host> docker-compose down
 - この環境に関して要望がありましたらご連絡いただければと思います。
 
 # 参考
-- [Dockerhub:Metabase](https://hub.docker.com/_/mysql)
-- [UCI Machine Learning Repository(Student Performance)](https://archive.ics.uci.edu/ml/datasets/Student+Performance)
+- [Metabase](https://www.metabase.com)
+- [UCI Machine Learning Repository(Individual household electric power consumption)](https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption) 
