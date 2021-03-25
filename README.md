@@ -5,3 +5,7 @@
 ## [mysql]
 
 MySQLの練習用環境
+
+## [metabase]
+
+Metabaseの練習用環境
