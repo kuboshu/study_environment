@@ -7,7 +7,7 @@ services:
     networks:
       - study_net
     volumes:
-      - ./volumes/selenium:/dev/shm
+      - /dev/shm:/dev/shm
   
   web:
     image: nginx
