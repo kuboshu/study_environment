@@ -41,7 +41,6 @@ services:
       - elastic
     
   kibana:
-    # image: docker.elastic.co/kibana:7.11.2
     image: kibana:7.11.2
     container_name: kibana01
     environment: 
