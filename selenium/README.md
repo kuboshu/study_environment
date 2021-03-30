@@ -29,7 +29,7 @@ host> docker-compose -d --build
 ### 2. ホスト側でJupyter-notebookを起動してコードを実行する。
 
 sample/にサンプルプログラムを用意してありますので、コードの簡単な書き方はサンプルを参照してください。<br>
-seleniumへの接続はcommand_executorにhttp://localhost:4444/wd/hub(seleniumのコンテナ)を指定してください。
+seleniumへの接続はcommand_executorに以下の様に指定してください。
 
 ```python
 ...
