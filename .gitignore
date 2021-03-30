@@ -2,3 +2,4 @@
 *.txt
 .DS_Store
 volumes
+.ipynb_checkpoint
