@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker run -it --name nlp --rm -p 8888:8888 -w /home/jovyan/work -v $(pwd)/volumes/work:/home/jovyan/work nlp:v0.0.0
