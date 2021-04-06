@@ -3,3 +3,5 @@
 .DS_Store
 volumes
 .ipynb_checkpoints
+contents
+fess/elasticsearch
