@@ -37,8 +37,8 @@ services:
         soft: 65535
         hard: 65535
     volumes: 
-      - ./elasticsearch/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/dictionary:/usr/share/elasticsearch/config/dictionary
+      - ./contents/elasticsearch_volume/data:/usr/share/elasticsearch/data
+      - ./contents/elasticsearch_volume/dictionary:/usr/share/elasticsearch/config/dictionary
     ports:
       - 9200:9200
     networks:
@@ -50,47 +50,51 @@ services:
         max-file: "5"
 
 
-  nginx:
-    image: nginx
-    ports:
-      - "10080:80"
-    networks:
-      - sample_nw
+  # nginx:
+  #   image: nginx
+  #   ports:
+  #     - "10080:80"
+  #   networks:
+  #     - sample_nw
 
-  mysql:
-    image: mysql
-    ports:
-      - "13306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-    networks:
-      - sample_nw
+  # mysql:
+  #   image: mysql
+  #   ports:
+  #     - "13306:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #   networks:
+  #     - sample_nw
   
-  gitbucket:
-    image: gitbucket/gitbucket
-    ports:
-      - "28080:8080"
-    networks:
-      - sample_nw
-    volumes:
-      - "./contents/gitbucket_volume:/gitbucket"
+  # gitbucket:
+  #   image: gitbucket/gitbucket
+  #   ports:
+  #     - "28080:8080"
+  #   networks:
+  #     - sample_nw
+  #   volumes:
+  #     - "./contents/gitbucket_volume:/gitbucket"
 
-  redmine:
-    image: redmine
-    ports:
-      - "13000:3000"
-    networks:
-      - sample_nw
+  # redmine:
+  #   image: redmine
+  #   ports:
+  #     - "13000:3000"
+  #   networks:
+  #     - sample_nw
 
-  dokuwiki:
-    image: bitnami/dokuwiki
-    ports:
-      - "38080:8080"
-    networks:
-      - sample_nw
-    volumes: 
-      - "./contents/dokuwiki_volume:/bitnami/dokuwiki"
+  # dokuwiki:
+  #   image: bitnami/dokuwiki
+  #   ports:
+  #     - "38080:8080"
+  #   networks:
+  #     - sample_nw
+  #   volumes: 
+  #     - "./contents/dokuwiki_volume:/bitnami/dokuwiki"
 
 networks:
   sample_nw:
-
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/16
+          gateway: 172.16.0.1

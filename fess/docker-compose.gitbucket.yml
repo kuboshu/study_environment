@@ -1,0 +1,11 @@
+version: '3.8'
+services: 
+  gitbucket:
+    image: gitbucket/gitbucket
+    ports:
+      - "28080:8080"
+    networks:
+      sample_nw:
+        ipv4_address: 172.16.0.10
+    volumes:
+      - "./contents/gitbucket_volume:/gitbucket"
