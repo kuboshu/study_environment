@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+    redmine:
+        image: redmine:4.0
+        ports:
+            - "13000:3000"
+        environment:
+            REDMINE_DB_MYSQL: redmine-db
+            REDMINE_DB_PASSWORD: root
+        depends_on:
+            - redmine-db
+        volumes:
+            - ./contents/redmine_volume/redmine/plugins:/usr/src/redmine/plugins
+            - ./contents/redmine_volume/redmine/themes:/usr/src/redmine/public/themes
+        networks:
+            sample_nw:
+                ipv4_address: 172.16.0.20
+
+
+    redmine-db:
+        image: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: redmine
+        volumes:
+            - ./contents/redmine_volume/db:/var/lib/mysql
+        networks:
+            - sample_nw
