@@ -1,8 +1,11 @@
 # Fessの実験用環境
 
-
-
-# Webのクローリング
+Fessでクローリングをやるための実験環境です。
+用意した環境はFessとその他サーバを１つのDockerネットワーク内に作成しているため、
+クローリングで検索結果を表示するところまではできますが、
+リンク先をクリックしてもリンク先に飛ぶことはできません。
+これはDockerネットワーク内のコンテナにホストから接続できないためです。
+実際に運用する際はクローリング対象へDocker外からアクセスできるように配置してください。<br>
 
 # Gitbucketのクローリング
 
@@ -185,3 +188,37 @@ host> docker-compose ps
 正常にクローリングできていたら、以下の様にローカルに保存されているドキュメントが表示されます。<br>
 <br>
 <img src="./figures/fess_filesystem_result.png" width="700">
+
+
+# Webのクローリング
+
+## 基本操作
+
+### <u>起動</u>
+```
+host> docker-compose -f docker-compose.yml -f docker-compose.nginx.yml up -d --build
+```
+
+### <u>停止</u>
+```
+host> docker-compose -f docker-compose.yml -f docker-compose.nginx.yml down
+```
+
+### <u>状態確認</u>
+```
+host> docker-compose -f docker-compose.yml -f docker-compose.nginx.yml ps 
+```
+
+## 設定(Fess側)
+
+## 設定
+Webへのクローリングを以下の様に設定します。<br>
+<br>
+<img src="./figures/fess_nginx_crawling.png" width="700">
+
+### <u>結果の確認</u>
+正常にクローリングできていたら、以下の様にwebページが表示されます。<br>
+今回はサンプルとしてNginxのトップページが表示されました。<br>
+<br>
+<img src="./figures/fess_nginx_result.png" width="700">
+
