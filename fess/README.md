@@ -214,7 +214,7 @@ host> docker-compose -f docker-compose.yml -f docker-compose.nginx.yml ps
 ## 設定
 Webへのクローリングを以下の様に設定します。<br>
 <br>
-<img src="./figures/fess_nginx_crawling.png" width="700">
+<img src="./figures/fess_nginx_crawler.png" width="700">
 
 ### <u>結果の確認</u>
 正常にクローリングできていたら、以下の様にwebページが表示されます。<br>
