@@ -7,6 +7,8 @@ NLPを勉強するための環境です。この環境は[15stepで踏破 自然
 
 # 使い方
 
+手順の0と1は最初の一回だけで十分です。コンテナイメージをビルドできたら、次回からは手順２から実行してください。
+
 ### 0. ファイルに実行権限を付与する
 ```bash
 host> chmod a+x build run
@@ -23,11 +25,11 @@ host> ./build
 ```base
 host> ./run
 ```
+Jupyter notebookで作成したファイルは、ホスト側のvolumes/work/以下に保存されます。<br>
+逆にホストで作成したファイルをvolumes/work/以下に配置すると、コンテナのJupyter notebookで参照できます。<br>
 
 ### 3. コンテナ停止
-```bash
-host> docker-compose down
-```
+ターミナル上でCtrl+Cで停止させてください。
 
 # 勉強会のメンバーへ
 
