@@ -8,4 +8,5 @@ RUN apt-get install -y mecab libmecab-dev mecab-ipadic gcc g++
 
 USER ${NB_USER}
 RUN pip install mecab-python3 unidic-lite scikit-learn pandas keras tensorflow neologdn
+RUN pip install PyPDF2 pdfminer.six
 
