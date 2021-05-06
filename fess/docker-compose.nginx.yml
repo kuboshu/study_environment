@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+    nginx:
+        image: nginx
+        ports:
+            - "10080:80"
+        networks:
+            - sample_nw
