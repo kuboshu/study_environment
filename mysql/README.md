@@ -24,7 +24,7 @@ MySQLの使い方を勉強するための環境です。serverとclientの２つ
 
 ### 1. コンテナを起動する
 ```base
-host> docker-compose -d --build
+host> docker-compose up -d --build
 ```
 
 ### 2. クライアントに接続する
